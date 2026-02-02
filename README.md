@@ -1,6 +1,15 @@
-# Fundex Payment Clone
+# FundedNext Main Account Clone
 
-This is a fullstack web application that replicates the payment flow for trading plans, featuring a 70% discount logic and crypto payment options (BTC and USDT-TRC20).
+This is a fullstack web application that replicates the payment flow for FundedNext trading plans, featuring a 70% discount logic and crypto payment options (BTC and USDT-TRC20).
+
+## Features
+
+*   **Instant Funding:** Select from $6k to $100k account sizes.
+*   **Discounted Pricing:** 70% discount applied automatically to all plans.
+*   **Crypto Payment:** Supports Bitcoin (BTC) and Tether (USDT-TRC20).
+*   **User Details:** Collects Name, Email, and Country before payment.
+*   **Simulated Verification:** 15-minute payment timer and simulated blockchain confirmation.
+*   **MT5 Credential Delivery:** Simulates sending credentials via email upon success.
 
 ## Tech Stack
 
@@ -39,16 +48,9 @@ npm start
 ## Usage
 
 1.  Open the application in your browser.
-2.  Browse the available trading plans. Notice the **70% discount** applied to the prices (e.g., a $599 plan is shown as ~$179.7).
-3.  Click **"Select Plan"** on any card.
-4.  A payment modal will appear.
-5.  Toggle between **Bitcoin (BTC)** and **Tether (USDT - TRC20)** tabs.
-    *   **BTC Address:** `bc1q0le434h22m4rawmwzu5gmlncz3exe9dr2mrpz8`
-    *   **USDT Address:** `THpsj7RXGncJs6jBbrXGskn7woiKCS8CpQ`
-6.  Scan the QR code or copy the address to simulate a payment.
-
-## Project Structure
-
-*   `frontend/`: React application source code.
-*   `backend/`: Express server source code.
-*   `package.json`: Root configuration to manage both workspaces.
+2.  Browse the available **Instant Funding** plans.
+3.  Click "Select Plan" on your desired account size.
+4.  Enter your Name, Email, and Country.
+5.  Proceed to payment and select BTC or USDT.
+6.  Click "I have sent the funds" to simulate the payment.
+7.  Receive your "MT5 Credentials" success message.

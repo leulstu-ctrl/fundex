@@ -1,5 +1,5 @@
 {
-  "name": "fundex-clone",
+  "name": "fundednext-main-account",
   "version": "1.0.0",
   "scripts": {
     "start": "concurrently \"npm run server --prefix backend\" \"npm run dev --prefix frontend\"",
