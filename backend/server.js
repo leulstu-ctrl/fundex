@@ -6,50 +6,50 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
-const basePlans = [
+// Instant Funding Account Sizes and Base Prices
+const instantFundingSizes = [
     {
-        id: 'stellar-2-step',
-        name: 'Stellar 2-Step',
-        basePrice: 599, // Mocking a higher price typical for prop firms
-        description: 'Two phase challenge'
+        size: 6000,
+        label: '$6,000',
+        basePrice: 99
     },
     {
-        id: 'stellar-1-step',
-        name: 'Stellar 1-Step',
-        basePrice: 299,
-        description: 'One phase challenge'
+        size: 15000,
+        label: '$15,000',
+        basePrice: 199
     },
     {
-        id: 'stellar-lite',
-        name: 'Stellar Lite',
-        basePrice: 199,
-        description: 'Lite version'
+        size: 25000,
+        label: '$25,000',
+        basePrice: 349
     },
     {
-        id: 'stellar-instant',
-        name: 'Stellar Instant',
-        basePrice: 99,
-        description: 'Instant funding'
+        size: 50000,
+        label: '$50,000',
+        basePrice: 649
     },
     {
-        id: 'futures',
-        name: 'Futures Plan',
-        basePrice: 149,
-        description: 'Futures trading'
+        size: 100000,
+        label: '$100,000',
+        basePrice: 1199
     }
 ];
 
 app.get('/api/plans', (req, res) => {
-    const discountedPlans = basePlans.map(plan => {
+    const plans = instantFundingSizes.map(item => {
         // Apply 70% reduction (Pay only 30%)
-        const discountedPrice = plan.basePrice * 0.30;
+        const discountedPrice = item.basePrice * 0.30;
         return {
-            ...plan,
-            originalPrice: plan.basePrice,
-            price: Math.round(discountedPrice * 100) / 100 // Round to 2 decimals
+            id: `instant-${item.size}`,
+            name: 'Instant Funding',
+            size: item.size,
+            label: item.label,
+            originalPrice: item.basePrice,
+            price: Math.round(discountedPrice * 100) / 100, // Round to 2 decimals
+            description: `Start trading with a ${item.label} account immediately.`
         };
     });
-    res.json(discountedPlans);
+    res.json(plans);
 });
 
 app.listen(port, () => {

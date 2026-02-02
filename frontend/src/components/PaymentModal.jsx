@@ -75,7 +75,11 @@ const PaymentModal = ({ plan, onClose }) => {
           </div>
 
           <div className="mt-6 w-full p-3 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium">
-             Amount to Pay: <span className="font-bold text-lg">${plan.price}</span>
+             <div className="text-gray-600 mb-1 text-xs uppercase tracking-wide">Selected: <span className="text-blue-900 font-bold">{plan.label} Account</span></div>
+             <div className="flex items-center justify-center gap-2">
+                 <span>Amount to Pay:</span>
+                 <span className="font-bold text-xl">${plan.price}</span>
+             </div>
           </div>
 
         </div>
