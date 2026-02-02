@@ -52,6 +52,20 @@ app.get('/api/plans', (req, res) => {
     res.json(plans);
 });
 
+app.post('/api/subscribe', (req, res) => {
+    const { name, email, country, planId, paymentMethod } = req.body;
+
+    // Simulate processing time
+    setTimeout(() => {
+        console.log(`New Subscription: ${name} (${email}) from ${country} bought ${planId} via ${paymentMethod}`);
+        res.json({
+            success: true,
+            message: "Payment verified",
+            emailSentTo: email
+        });
+    }, 2000);
+});
+
 app.listen(port, () => {
     console.log(`Backend server running on http://localhost:${port}`);
 });
