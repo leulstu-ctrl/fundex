@@ -1,22 +1,80 @@
 import React, { useEffect, useState } from 'react';
 
+const DEFAULT_PLANS = [
+  {
+    id: 'instant-6000',
+    name: 'Instant Funding',
+    size: 6000,
+    label: '$6,000',
+    originalPrice: 99,
+    price: 29.70,
+    description: 'Start trading with a $6,000 account immediately.'
+  },
+  {
+    id: 'instant-15000',
+    name: 'Instant Funding',
+    size: 15000,
+    label: '$15,000',
+    originalPrice: 199,
+    price: 59.70,
+    description: 'Start trading with a $15,000 account immediately.'
+  },
+  {
+    id: 'instant-25000',
+    name: 'Instant Funding',
+    size: 25000,
+    label: '$25,000',
+    originalPrice: 349,
+    price: 104.70,
+    description: 'Start trading with a $25,000 account immediately.'
+  },
+  {
+    id: 'instant-50000',
+    name: 'Instant Funding',
+    size: 50000,
+    label: '$50,000',
+    originalPrice: 649,
+    price: 194.70,
+    description: 'Start trading with a $50,000 account immediately.'
+  },
+  {
+    id: 'instant-100000',
+    name: 'Instant Funding',
+    size: 100000,
+    label: '$100,000',
+    originalPrice: 1199,
+    price: 359.70,
+    description: 'Start trading with a $100,000 account immediately.'
+  }
+];
+
 const Pricing = ({ onSelectPlan }) => {
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedPlan, setSelectedPlan] = useState(null);
 
   useEffect(() => {
+    // Try to fetch from API, but fallback to DEFAULT_PLANS on error
     fetch('http://localhost:3001/api/plans')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
       .then(data => {
-        setPlans(data);
-        if (data.length > 0) {
+        if (data && data.length > 0) {
+          setPlans(data);
           setSelectedPlan(data[0]);
+        } else {
+          // Fallback if data is empty
+          setPlans(DEFAULT_PLANS);
+          setSelectedPlan(DEFAULT_PLANS[0]);
         }
         setLoading(false);
       })
       .catch(err => {
-        console.error("Failed to fetch plans", err);
+        console.warn("Failed to fetch plans, using default values:", err);
+        setPlans(DEFAULT_PLANS);
+        setSelectedPlan(DEFAULT_PLANS[0]);
         setLoading(false);
       });
   }, []);
