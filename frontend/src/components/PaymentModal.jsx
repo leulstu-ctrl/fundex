@@ -48,27 +48,16 @@ const PaymentModal = ({ plan, onClose }) => {
   const handlePaymentSent = () => {
     setStep('confirming');
 
-    // Call backend
-    fetch('http://localhost:3001/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            ...userDetails,
-            planId: plan.id,
-            paymentMethod: currency
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.success) {
-            setStep('success');
-        }
-    })
-    .catch(err => {
-        console.error(err);
-        // Fallback for demo if server fails
-        setTimeout(() => setStep('success'), 2000);
-    });
+    // Simulate frontend-only verification (no backend)
+    setTimeout(() => {
+        console.log(`Simulated Payment Verification:
+            User: ${userDetails.name} (${userDetails.email})
+            Plan: ${plan.id}
+            Amount: $${plan.price}
+            Method: ${currency}
+        `);
+        setStep('success');
+    }, 2500);
   };
 
   return (

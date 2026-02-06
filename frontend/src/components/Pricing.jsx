@@ -49,43 +49,8 @@ const DEFAULT_PLANS = [
 ];
 
 const Pricing = ({ onSelectPlan }) => {
-  const [plans, setPlans] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedPlan, setSelectedPlan] = useState(null);
-
-  useEffect(() => {
-    // Try to fetch from API, but fallback to DEFAULT_PLANS on error
-    fetch('http://localhost:3001/api/plans')
-      .then(res => {
-        if (!res.ok) throw new Error('Network response was not ok');
-        return res.json();
-      })
-      .then(data => {
-        if (data && data.length > 0) {
-          setPlans(data);
-          setSelectedPlan(data[0]);
-        } else {
-          // Fallback if data is empty
-          setPlans(DEFAULT_PLANS);
-          setSelectedPlan(DEFAULT_PLANS[0]);
-        }
-        setLoading(false);
-      })
-      .catch(err => {
-        console.warn("Failed to fetch plans, using default values:", err);
-        setPlans(DEFAULT_PLANS);
-        setSelectedPlan(DEFAULT_PLANS[0]);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return <div className="text-center py-20 text-white">Loading plans...</div>;
-  }
-
-  if (!selectedPlan) {
-      return <div className="text-center py-20 text-white">No plans available.</div>;
-  }
+  const [plans, setPlans] = useState(DEFAULT_PLANS);
+  const [selectedPlan, setSelectedPlan] = useState(DEFAULT_PLANS[0]);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
