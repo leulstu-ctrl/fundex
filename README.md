@@ -1,56 +1,16 @@
-# FundedNext Main Account Clone
+# React + Vite
 
-This is a fullstack web application that replicates the payment flow for FundedNext trading plans, featuring a 70% discount logic and crypto payment options (BTC and USDT-TRC20).
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-*   **Instant Funding:** Select from $6k to $100k account sizes.
-*   **Discounted Pricing:** 70% discount applied automatically to all plans.
-*   **Crypto Payment:** Supports Bitcoin (BTC) and Tether (USDT-TRC20).
-*   **User Details:** Collects Name, Email, and Country before payment.
-*   **Simulated Verification:** 15-minute payment timer and simulated blockchain confirmation.
-*   **MT5 Credential Delivery:** Simulates sending credentials via email upon success.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Tech Stack
+## React Compiler
 
-*   **Frontend:** React, Vite, TailwindCSS
-*   **Backend:** Node.js, Express
-*   **Other:** `qrcode.react` for dynamic QR generation, `concurrently` for running both servers.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Prerequisites
+## Expanding the ESLint configuration
 
-*   Node.js (v14 or higher recommended)
-*   npm
-
-## Installation
-
-1.  Clone the repository.
-2.  Install the project dependencies. Run the following commands from the root directory:
-
-    ```bash
-    npm install
-    npm run install:all
-    ```
-
-    The first command installs the root tools, and the second command installs dependencies for both `frontend` and `backend`.
-
-## Running the Application
-
-To start both the backend server and the frontend development server concurrently:
-
-```bash
-npm start
-```
-
-*   The **Frontend** will be available at `http://localhost:5173` (or the port Vite assigns).
-*   The **Backend** runs on `http://localhost:3001`.
-
-## Usage
-
-1.  Open the application in your browser.
-2.  Browse the available **Instant Funding** plans.
-3.  Click "Select Plan" on your desired account size.
-4.  Enter your Name, Email, and Country.
-5.  Proceed to payment and select BTC or USDT.
-6.  Click "I have sent the funds" to simulate the payment.
-7.  Receive your "MT5 Credentials" success message.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

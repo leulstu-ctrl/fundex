@@ -9,3 +9,6 @@ Port 5174 is in use, trying another one...
 
   ➜  Local:   http://localhost:5175/
   ➜  Network: use --host to expose
+3:56:05 AM [vite] vite.config.js changed, restarting server...
+3:56:05 AM [vite] (client) page reload index.html
+3:56:06 AM [vite] server restarted.

@@ -2,11 +2,13 @@
 > frontend@0.0.0 dev
 > vite --port 5173
 
+3:57:29 AM [vite] (client) Re-optimizing dependencies because vite config has changed
 Port 5173 is in use, trying another one...
 Port 5174 is in use, trying another one...
 Port 5175 is in use, trying another one...
+Port 5176 is in use, trying another one...
 
-  VITE v7.3.1  ready in 488 ms
+  VITE v7.3.1  ready in 1514 ms
 
-  ➜  Local:   http://localhost:5176/
+  ➜  Local:   http://localhost:5177/
   ➜  Network: use --host to expose
